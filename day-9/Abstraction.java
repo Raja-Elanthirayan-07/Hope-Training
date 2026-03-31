@@ -1,49 +1,28 @@
-abstract class Employee {
-    String name;
-
-    public Employee(String name) {
-        this.name = name;
-    }
-
-    abstract void calculateSalary();
-}
-
-class FullTimeEmployee extends Employee {
-    double monthlySalary;
-
-    public FullTimeEmployee(String name, double monthlySalary) {
-        super(name);
-        this.monthlySalary = monthlySalary;
-    }
-
-    @Override
-    void calculateSalary() {
-        System.out.println(name + "'s Full-Time salary is: $" + monthlySalary);
+abstract class Animal{
+    abstract void sound();
+    void eat(){
+        System.out.println("eating");
     }
 }
-
-class PartTimeEmployee extends Employee {
-    double hourlyRate;
-    int hoursWorked;
-
-    public PartTimeEmployee(String name, double hourlyRate, int hoursWorked) {
-        super(name);
-        this.hourlyRate = hourlyRate;
-        this.hoursWorked = hoursWorked;
-    }
-
-    @Override
-    void calculateSalary() {
-        System.out.println(name + "'s Part-Time salary is: $" + (hourlyRate * hoursWorked));
+class Dog extends Animal{
+    void sound(){
+        System.out.println("Barks");
     }
 }
-
-public class Abstraction {
+class Cat extends Animal{
+    void sound(){
+        System.out.println("Meows");
+    }
+}
+public class Abstraction{
     public static void main(String[] args) {
-        Employee ft = new FullTimeEmployee("Alice", 5000);
-        Employee pt = new PartTimeEmployee("Bob", 20, 80);
+        Animal c=new Cat();
+        Animal d=new Dog();
+        d.eat();
+        d.sound();
+        c.eat();
+        c.sound();
 
-        ft.calculateSalary();
-        pt.calculateSalary();
+        
     }
 }
