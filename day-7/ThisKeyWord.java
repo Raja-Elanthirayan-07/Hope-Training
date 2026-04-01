@@ -1,3 +1,5 @@
+import tasks.Student;
+
 public class ThisKeyWord{
     public static void main(String[] args) {
         Student s1 = new Student("uma","24cs284");
